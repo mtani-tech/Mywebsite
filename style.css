@@ -1,0 +1,217 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    line-height: 1.6;
+    background-color: #f8f9fa;
+    color: #333;
+    padding-bottom: 20px;
+}
+
+/* Navigation & Header (ILIREKEBISHWA: LOGO IMIONGEZEWA UKUBWA WA KUTOSHA KUSOMEKA) */
+header {
+    background: #ffffff;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 900;
+    width: 100% !important;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px 12px !important; /* Nafasi iliongezwa kidogo ili iwe ya kiasi */
+    max-width: 1200px !important; 
+    margin: 0 auto;
+}
+
+.logo-box {
+    border: 1px solid #d4af37;
+    padding: 3px 6px !important; /* Box limeongezwa nafasi kidogo ili picha ipumue */
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+}
+
+/* Ukubwa wa nembo kwenye kompyuta (PC) */
+header img, .main-logo {
+    height: 45px !important; /* Urefu uliongezwa kutoka 15px hadi 45px ili maneno yasomeke */
+    width: auto !important;  /* Inaruhusu upana ujirekebishe wenyewe bila kupasua picha */
+    max-height: 45px !important;
+    max-width: 160px !important;
+    display: block !important;
+    mix-blend-mode: multiply; 
+}
+
+nav {
+    display: flex;
+    align-items: center;
+}
+
+nav a {
+    text-decoration: none;
+    color: #003366;
+    margin-left: 15px !important; 
+    font-weight: 700;
+    font-size: 0.9rem !important; /* Herufi za menu ziliongezwa ukubwa kidogo ziendane na nembo */
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #d4af37;
+}
+
+.marquee-text {
+    background: #003366;
+    color: #d4af37;
+    padding: 10px 0;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+/* Main Content Layout */
+body > p, body > div, .container {
+    width: 90%;
+    max-width: 800px;
+    margin: 25px auto;
+    font-size: 1.1rem;
+    color: #444;
+    text-align: justify;
+}
+
+h1, h2 {
+    width: 90%;
+    max-width: 800px;
+    margin: 30px auto 10px auto;
+    color: #003366;
+}
+
+h2 {
+    border-bottom: 2px solid #d4af37;
+    padding-bottom: 5px;
+}
+
+/* Responsive Image Handling (Kwa ajili ya picha za ndani ya makala pekee) */
+body img:not(header img) {
+    max-width: 400px;
+    width: 90%;
+    height: auto;
+    display: block;
+    margin: 25px auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.12);
+    transition: transform 0.3s ease;
+}
+
+/* Showcase Section */
+#showcase {
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url("beatus.jpg");
+    background-size: cover;
+    background-position: center;
+    height: 40vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+#showcase h1 {
+    font-size: 2.8rem;
+    padding: 0 20px;
+    color: #ffffff;
+}
+
+/* Buttons */
+button {
+    display: block;
+    margin: 30px auto;
+    background: #d4af37;
+    border: none;
+    border-radius: 50px;
+    padding: 0;
+    transition: 0.3s;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+button a {
+    color: white !important;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+    display: inline-block;
+    padding: 12px 40px;
+}
+
+button:hover {
+    background: #003366;
+    transform: translateY(-3px);
+}
+
+/* Modern Footer */
+footer {
+    background: #001a33;
+    color: #ccc;
+    padding: 10px 5%;
+    margin-top: 20px;
+    text-align: center;
+    font-size: 0.85rem;
+}
+
+footer h3 {
+    color: #d4af37;
+    margin-bottom: 2px;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+footer a {
+    color: #d4af37;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+footer a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+footer marquee {
+    font-size: 0.8rem;
+    margin-bottom: 2px;
+}
+
+/* Mobile Adjustments (Responsive Design) */
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: row !important; 
+        justify-content: space-between !important;
+        padding: 5px 10px !important; /* Padding ya kiasi kwa ajili ya simu */
+    }
+    
+    nav {
+        margin-top: 0 !important;
+        flex-wrap: nowrap !important;
+    }
+    
+    nav a {
+        margin: 0 0 0 10px !important;
+        font-size: 0.85rem !important; 
+    }
+
+    /* Ukubwa maalum wa nembo kwenye simu ili isomeke vizuri */
+    header img, .main-logo {
+        height: 80px !important; /* Urefu ulioongezwa hadi 32px ili maneno "MTANI WEBSITE" yasomeke vizuri */
+        width: auto !important; 
+        max-width: 110px !important;
+    }
+}
