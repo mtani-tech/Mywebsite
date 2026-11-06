@@ -1,17 +1,22 @@
-# MTANI TECH store setup
+# MTANI TECH marketplace
 
-The GitHub Pages site contains a simple Tanzania-focused technology storefront and buyer guide, customer sign-up/sign-in, product management, and an admin order dashboard. The Supabase project is required for database-backed products, accounts, and order requests; GitHub Pages cannot host a private database itself.
+This GitHub Pages storefront is a public, mobile-friendly product discovery site for technology goods in Tanzania. It includes category browsing, search, sorting, saved items, enquiry list, WhatsApp seller enquiries, and links to free software downloads from official publishers.
 
-## Connect Supabase
+## Important limits
+- The site is not Alibaba and is not yet a complete multi-vendor transaction platform. Seller verification, payment processing, shipping, refunds/disputes, and automatic order fulfillment require trusted backend services and operational setup.
+- When the database is not configured, the catalogue shows clearly labelled example product ideas. They are not live offers; sellers, stock, condition, warranty and prices must be checked directly.
+- Free software cards link to the respective official publishers. MTANI TECH does not host or redistribute those downloads.
+- In the admin catalog, a public download URL is permitted only for free resources. Do not place paid/private goods in a public URL field. Paid downloads need a backend to confirm payment and issue short-lived private links.
+
+## Connect the database
 1. Create a Supabase project.
-2. In **SQL Editor**, run all of `supabase/schema.sql`.
-3. In `supabase-config.js`, replace the two placeholders with the project's **Project URL** and **publishable/anon key**. These public client values are intended for the browser. **Never add a service-role key or a password to this repository.**
-4. In Supabase Auth settings, configure the site URL and redirect URL for the GitHub Pages origin, such as `https://mtani-tech.github.io` and `https://mtani-tech.github.io/Mywebsite/`.
-5. Create an owner account through `auth.html`. Then grant that account `app_metadata.role = admin` through a trusted Supabase admin workflow/dashboard. Do not grant roles via user-editable metadata. Admin pages and database changes are protected by RLS policies in the SQL.
-6. Add verified products, current TZS prices, and seller-owned product images through `admin.html`. Visitors can browse products; signed-in customers can submit order requests. Confirm stock, pickup/delivery and payment with customers manually; this is not a payment processor.
+2. Run `supabase/schema.sql` in the Supabase SQL editor. It creates/migrates the product categories, seller details, stock fields and order enquiry tables with row-level security.
+3. Set the project URL and public anon/publishable key in `supabase-config.js`. Never add a service-role key or password to the public repository.
+4. Configure Supabase Auth site and redirect URLs for `https://mtani-tech.github.io` and `https://mtani-tech.github.io/Mywebsite/`.
+5. Create your owner account and assign `app_metadata.role=admin` securely from Supabase. Never assign roles from browser-editable metadata.
+6. Add verified seller listings, accurate photos with permission, current TZS price/quote, stock and warranty details in `admin.html`.
 
-## Tanzania shop partners and images
-The homepage includes a WhatsApp enquiry for physical technology shops that want to discuss a listing. It does not claim that any shop has already joined or been verified. Confirm shop identity, location, permission to list, products and prices before publishing partner details. The buyer-guide photos are illustrative stock photography; upload seller-owned photos for actual product listings.
+WhatsApp enquiries use **+255 639 784 923** (international link `https://wa.me/255639784923`). Verify seller identity, product authenticity, availability, delivery and final price before making payments.
 
-## Deployment
-Changes pushed to the repository's `main` branch are published by GitHub Pages after its deployment finishes. Supabase setup and configuration are separate steps and are not completed by a GitHub Pages push. Until Supabase is configured and real product listings are added, the catalogue/order features remain unconnected.
+## Publish
+Changes pushed to `main` deploy through GitHub Pages. Database-backed functions require Supabase setup separately. To make this a fully functional marketplace with paid digital delivery or online payments, add a secure server/backend and a payment provider; do not collect payment credentials on a static page.

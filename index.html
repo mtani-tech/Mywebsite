@@ -3,8 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Explore practical technology, software and digital resources for everyday life in Tanzania. Contact MTANI TECH about products and local shop partnerships.">
-  <title>MTANI TECH | Technology for everyday life</title>
+  <meta name="theme-color" content="#073763">
+  <meta name="description" content="Shop and discover computers, phones, coding gear, software and digital resources in Tanzania. Ask for current prices and stock on WhatsApp.">
+  <title>MTANI TECH | Technology marketplace Tanzania</title>
   <link rel="stylesheet" href="style.css">
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="supabase-config.js"></script>
@@ -14,56 +15,45 @@
   <header class="site-header">
     <a class="brand" href="index.html"><img src="Gemini_Generated_Image_3dc90g3dc90g3dc9.png" alt="MTANI TECH logo"><span>MTANI TECH</span></a>
     <nav aria-label="Main navigation">
-      <a href="#products">Shop</a>
-      <a href="#guides">Tech guide</a>
-      <a href="#partners">Local shops</a>
-      <a href="auth.html" id="accountLink">Log in</a>
-      <a href="admin.html" id="adminLink" hidden>Admin</a>
-      <button class="button button-small" id="signOutButton" hidden>Log out</button>
+      <a href="#products">Marketplace</a><a href="#categories">Categories</a><a href="#downloads">Free tools</a><a href="#partners">Sell with us</a>
+      <a href="auth.html" id="accountLink">Log in</a><a href="admin.html" id="adminLink" hidden>Admin</a><button class="button button-small" id="signOutButton" hidden>Log out</button>
     </nav>
   </header>
   <main>
     <section class="hero">
-      <div class="hero-copy">
-        <p class="eyebrow">PRACTICAL TECHNOLOGY · TANZANIA</p>
-        <h1>Find the right technology for everyday life.</h1>
-        <p>Explore helpful devices, software and digital skills. Ask us about availability, prices in TZS and local shop options before you buy.</p>
-        <div class="hero-actions"><a class="button" href="#products">Browse products</a><a class="button button-outline" href="#guides">Explore the guide</a></div>
-      </div>
-      <img class="hero-image" src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1100&q=85" alt="People collaborating with technology" fetchpriority="high">
+      <div class="hero-copy"><p class="eyebrow">A TECHNOLOGY MARKETPLACE FOR TANZANIA</p><h1>Find tech for your next big idea.</h1><p>Explore computers, phones, coding gear, software and digital tools. Compare options and ask sellers about current stock, price and delivery.</p><div class="hero-actions"><a class="button" href="#products">Explore products</a><a class="button button-outline" href="https://wa.me/255639784923" target="_blank" rel="noopener noreferrer">Chat on WhatsApp</a></div><div class="trust-points"><span>✓ Tanzania-focused</span><span>✓ Ask sellers directly</span><span>✓ TZS enquiries</span></div></div>
+      <img class="hero-image" src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1200&q=85" alt="Team collaborating with computers" fetchpriority="high">
     </section>
+
+    <section class="category-section" id="categories"><div class="section-heading"><div><p class="eyebrow">SHOP BY CATEGORY</p><h2>Find what you need</h2></div></div><div class="category-grid">
+      <a href="#products" data-category-link="Computers"><img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=500&q=80" alt="Laptop"><span>Computers</span></a>
+      <a href="#products" data-category-link="Phones"><img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=500&q=80" alt="Smartphone"><span>Phones</span></a>
+      <a href="#products" data-category-link="Coding & electronics"><img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=500&q=80" alt="Electronic circuit board"><span>Coding & electronics</span></a>
+      <a href="#products" data-category-link="Accessories"><img src="https://images.unsplash.com/photo-1587829741301-dc798b83add3?auto=format&fit=crop&w=500&q=80" alt="Computer keyboard"><span>Accessories</span></a>
+      <a href="#products" data-category-link="Networking"><img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=500&q=80" alt="Network server equipment"><span>Networking</span></a>
+      <a href="#products" data-category-link="Power & solar"><img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=500&q=80" alt="Solar panels"><span>Power & solar</span></a>
+      <a href="#products" data-category-link="Software"><img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=500&q=80" alt="Software developer at work"><span>Software</span></a>
+      <a href="#products" data-category-link="Digital resources"><img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=500&q=80" alt="Online learning on a laptop"><span>Digital resources</span></a>
+    </div></section>
 
     <section class="store-section" id="products">
-      <div class="section-heading"><div><p class="eyebrow">SHOP</p><h2>Available products</h2><p class="section-intro">Browse the current catalogue. Confirm stock and final price with us before travelling or paying.</p></div><div class="filters"><label class="visually-hidden" for="searchInput">Search products</label><input id="searchInput" type="search" placeholder="Search products..."><label class="visually-hidden" for="categoryFilter">Filter category</label><select id="categoryFilter"><option value="">All categories</option></select></div></div>
-      <p id="statusMessage" class="notice" role="status">Loading products…</p>
-      <div id="productGrid" class="product-grid"></div>
+      <div class="section-heading"><div><p class="eyebrow">DISCOVER THE MARKETPLACE</p><h2>Technology products</h2><p class="section-intro">Example listings help you explore categories. Availability, seller, warranty and prices must be confirmed before purchase.</p></div></div>
+      <div class="shop-controls"><label class="visually-hidden" for="searchInput">Search products</label><input id="searchInput" type="search" placeholder="Search laptops, coding kits, software…"><label class="visually-hidden" for="categoryFilter">Category</label><select id="categoryFilter"><option value="">All categories</option></select><label class="visually-hidden" for="sortFilter">Sort products</label><select id="sortFilter"><option value="newest">Recently added</option><option value="name">Name A–Z</option><option value="price-low">Price: low to high</option></select><label class="favorite-filter"><input type="checkbox" id="favoritesOnly"> Saved items</label></div>
+      <p id="statusMessage" class="notice" role="status">Loading marketplace…</p><div id="productGrid" class="product-grid"></div>
     </section>
 
-    <section class="guide-section" id="guides">
-      <div class="section-heading"><div><p class="eyebrow">A SIMPLE BUYER'S GUIDE</p><h2>Technology for work, home and learning</h2><p class="section-intro">A few useful categories to consider. Choose tools that suit your needs, budget and access to power or internet.</p></div></div>
-      <div class="guide-grid">
-        <article class="guide-card"><img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=700&q=80" alt="Smartphone" loading="lazy"><div><h3>Phones & accessories</h3><p>Smartphones, chargers, cases and earphones for communication, mobile services and learning.</p></div></article>
-        <article class="guide-card"><img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=700&q=80" alt="Laptop computer" loading="lazy"><div><h3>Laptops & tablets</h3><p>For study, office tasks, business, programming and creating content. Compare memory, storage, battery and warranty.</p></div></article>
-        <article class="guide-card"><img src="https://images.unsplash.com/photo- router" alt="Wi-Fi networking equipment" loading="lazy"><div><h3>Internet & networking</h3><p>Routers, Wi-Fi equipment and network accessories. Check local network coverage and data costs first.</p></div></article>
-        <article class="guide-card"><img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=700&q=80" alt="Solar panels in sunlight" loading="lazy"><div><h3>Power & solar</h3><p>Power banks, surge protection and solar equipment can help keep devices available. Ask about capacity and safe installation.</p></div></article>
-        <article class="guide-card"><img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=700&q=80" alt="Person using a computer" loading="lazy"><div><h3>Software & online safety</h3><p>Use genuine software, updates, backups and strong unique passwords. Avoid unknown downloads and suspicious payment requests.</p></div></article>
-        <article class="guide-card"><img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=700&q=80" alt="Digital tools on a laptop" loading="lazy"><div><h3>Digital skills & tools</h3><p>Productivity, design, coding and AI tools can support learning and small businesses. Check requirements and terms before subscribing.</p></div></article>
-      </div>
-      <p class="image-note">Photos are illustrative stock images, not a guarantee of a particular product model or current stock.</p>
-    </section>
+    <section class="downloads-section" id="downloads"><div class="section-heading"><div><p class="eyebrow">FREE & TRUSTED DOWNLOADS</p><h2>Developer tools from official sources</h2><p class="section-intro">These are free tools linked to their publishers’ official websites. Check each publisher’s terms and system requirements.</p></div></div><div class="download-grid">
+      <article class="download-card"><img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=700&q=80" alt="Code editor on a computer" loading="lazy"><div><h3>Visual Studio Code</h3><p>Free source-code editor. Download from Microsoft’s official website.</p><a class="button button-small" href="https://code.visualstudio.com/Download" target="_blank" rel="noopener noreferrer">Get VS Code</a></div></article>
+      <article class="download-card"><img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=700&q=80" alt="Programming code on a screen" loading="lazy"><div><h3>Python</h3><p>Programming language and tools for learning, automation and data work.</p><a class="button button-small" href="https://www.python.org/downloads/" target="_blank" rel="noopener noreferrer">Get Python</a></div></article>
+      <article class="download-card"><img src="https://images.unsplash.com/photo-1556075798-4825dfaaf498?auto=format&fit=crop&w=700&q=80" alt="Software development workspace" loading="lazy"><div><h3>Git</h3><p>Version-control software for tracking and collaborating on code.</p><a class="button button-small" href="https://git-scm.com/downloads" target="_blank" rel="noopener noreferrer">Get Git</a></div></article>
+      <article class="download-card"><img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=700&q=80" alt="Electronics project board" loading="lazy"><div><h3>Arduino IDE</h3><p>Official software for programming compatible Arduino boards.</p><a class="button button-small" href="https://www.arduino.cc/en/software/" target="_blank" rel="noopener noreferrer">Get Arduino IDE</a></div></article>
+    </div><p class="image-note">MTANI TECH links to official sources and does not host or redistribute these software downloads.</p></section>
 
-    <section class="partner-section" id="partners">
-      <div><p class="eyebrow">TANZANIAN PHYSICAL SHOPS</p><h2>Have a local technology shop?</h2><p>We welcome enquiries from shop owners who want to feature their real products and shop details. Send your shop name, town, contact, product categories and photos. Listings are added only after details are confirmed.</p><p class="small-note">This is a shop-partner enquiry, not a claim that any shop is already verified or partnered.</p></div>
-      <a class="button" href="https://wa.me/255741332943?text=Hello%20MTANI%20TECH%2C%20I%20own%20a%20physical%20technology%20shop%20and%20would%20like%20to%20discuss%20a%20partner%20listing.%20Shop%20name%3A%20%20Town%3A%20%20Products%3A%20" target="_blank" rel="noopener noreferrer">Ask to partner on WhatsApp</a>
-    </section>
+    <section class="seller-section" id="partners"><div><p class="eyebrow">FOR SHOPS & SELLERS</p><h2>Reach more technology customers</h2><p>Own a physical shop or sell technology in Tanzania? Contact us about a seller listing. Share your business name, town, contact details, product photos, prices and proof that you’re authorized to sell the goods. Listings are reviewed before appearing.</p><p class="small-note">This site currently supports seller enquiries and product order requests; it is not yet a full marketplace payment or shipping service. Never send money until you have verified the seller and agreed on delivery.</p></div><a class="button" href="https://wa.me/255639784923?text=Hello%20MTANI%20TECH%2C%20I%20would%20like%20to%20list%20my%20technology%20shop.%20Business%20name%3A%20%20Town%3A%20%20Product%20categories%3A%20" target="_blank" rel="noopener noreferrer">Become a seller</a></section>
 
-    <section class="cart-section" aria-labelledby="cartHeading">
-      <div class="section-heading"><div><p class="eyebrow">YOUR SELECTION</p><h2 id="cartHeading">Shopping cart <span id="cartCount" class="count">0</span></h2></div></div>
-      <div id="cartItems" class="cart-items"><p>Your cart is empty.</p></div>
-      <div class="cart-footer"><strong>Total: <span id="cartTotal">TZS 0</span></strong><button id="checkoutButton" class="button" disabled>Place order request</button></div>
-      <p class="small-note">Orders are requests, not online payments. We’ll confirm stock, delivery/pickup and payment details with you directly.</p>
-    </section>
+    <section class="cart-section" aria-labelledby="cartHeading"><div class="section-heading"><div><p class="eyebrow">YOUR SHORTLIST</p><h2 id="cartHeading">Enquiry list <span id="cartCount" class="count">0</span></h2></div></div><div id="cartItems" class="cart-items"><p>Your enquiry list is empty.</p></div><div class="cart-footer"><strong>Estimated total: <span id="cartTotal">Ask seller</span></strong><button id="checkoutButton" class="button" disabled>Enquire on WhatsApp</button></div><p class="small-note">For listings without confirmed prices, the total will be confirmed by the seller. This button sends an enquiry; it does not take payment.</p></section>
   </main>
-  <footer><p>© 2026 MTANI TECH · <a href="mailto:beatusmtani95@gmail.com">Email us</a> · <a href="https://wa.me/255741332943">WhatsApp</a></p></footer>
+  <a class="floating-whatsapp" href="https://wa.me/255639784923" target="_blank" rel="noopener noreferrer" aria-label="Chat with MTANI TECH on WhatsApp">WhatsApp</a>
+  <footer><p>© 2026 MTANI TECH · <a href="mailto:beatusmtani95@gmail.com">Email us</a> · <a href="https://wa.me/255639784923" target="_blank" rel="noopener noreferrer">WhatsApp: +255 639 784 923</a> · <a href="tel:+255639784923">Call us</a></p></footer>
 </body>
 </html>

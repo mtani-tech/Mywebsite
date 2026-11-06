@@ -1,32 +1,24 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Admin Dashboard | MTANI TECH</title><link rel="stylesheet" href="style.css">
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="supabase-config.js"></script><script src="admin.js" defer></script>
-</head>
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Admin Dashboard | MTANI TECH</title><link rel="stylesheet" href="style.css"><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="supabase-config.js"></script><script src="admin.js" defer></script></head>
 <body>
-  <header class="site-header"><a class="brand" href="index.html"><span>MTANI TECH ADMIN</span></a><nav><a href="index.html">Store</a><button id="adminSignOut" class="button button-small">Log out</button></nav></header>
-  <main class="admin-page"><p class="eyebrow">STORE MANAGEMENT</p><h1>Admin dashboard</h1><p id="adminStatus" class="notice" role="status">Checking access…</p>
-    <section id="dashboardContent" hidden>
-      <div class="admin-columns">
-        <section class="form-card"><h2 id="productFormHeading">Add a product</h2>
-          <form id="productForm">
-            <input id="productId" type="hidden">
-            <label for="productName">Product name</label><input id="productName" required maxlength="120">
-            <label for="productCategory">Category</label><select id="productCategory" required><option>Hardware</option><option>Software</option><option>Digital resources</option><option>Accessories</option></select>
-            <label for="productDescription">Description</label><textarea id="productDescription" rows="4" maxlength="1000" required></textarea>
-            <label for="productPrice">Price (TZS)</label><input id="productPrice" type="number" min="0" step="1" required>
-            <label for="productImage">Image URL (optional)</label><input id="productImage" type="url" placeholder="https://…">
-            <label class="checkbox-label"><input id="productActive" type="checkbox" checked> Visible in store</label>
-            <div class="form-actions"><button class="button" type="submit">Save product</button><button id="cancelEdit" class="button button-muted" type="button" hidden>Cancel edit</button></div>
-          </form>
-        </section>
-        <section><h2>Products</h2><div id="adminProducts" class="admin-list"></div></section>
-      </div>
-      <section class="orders-section"><h2>Order requests</h2><p class="small-note">Confirm stock and payment with the customer before fulfilling an order.</p><div id="adminOrders" class="admin-list"></div></section>
-    </section>
-  </main>
-  <footer><p>MTANI TECH administration</p></footer>
-</body>
-</html>
+  <header class="site-header"><a class="brand" href="index.html"><span>MTANI TECH ADMIN</span></a><nav><a href="index.html">Marketplace</a><button id="adminSignOut" class="button button-small">Log out</button></nav></header>
+  <main class="admin-page"><p class="eyebrow">SELLER CATALOG MANAGEMENT</p><h1>Admin dashboard</h1><p id="adminStatus" class="notice" role="status">Checking access…</p>
+    <section id="dashboardContent" hidden><div class="admin-columns">
+      <section class="form-card"><h2 id="productFormHeading">Add a listing</h2><form id="productForm">
+        <input id="productId" type="hidden"><label for="productName">Product name</label><input id="productName" required maxlength="120">
+        <label for="productCategory">Category</label><select id="productCategory" required><option>Computers</option><option>Phones</option><option>Coding & electronics</option><option>Networking</option><option>Power & solar</option><option>Software</option><option>Digital resources</option><option>Accessories</option></select>
+        <label for="productDescription">Description / specs</label><textarea id="productDescription" rows="4" maxlength="1000" required></textarea>
+        <label for="productPrice">Price (TZS; use 0 if quote only)</label><input id="productPrice" type="number" min="0" step="1" required>
+        <label for="productVendor">Seller / shop name</label><input id="productVendor" maxlength="120" placeholder="Seller name (verify before publishing)">
+        <label for="productStock">Stock quantity (0 = ask seller)</label><input id="productStock" type="number" min="0" step="1" value="0">
+        <label for="productType">Listing type</label><select id="productType"><option value="physical">Physical product</option><option value="digital_free">Free digital download</option><option value="digital_paid">Paid digital product (no public download URL)</option></select>
+        <label for="productImage">Product photo URL (seller-owned / authorized)</label><input id="productImage" type="url" placeholder="https://…">
+        <label for="downloadUrl">Free download URL (only for free resources)</label><input id="downloadUrl" type="url" placeholder="https://official-source.example/file">
+        <label class="checkbox-label"><input id="productActive" type="checkbox" checked> Visible in marketplace</label>
+        <div class="form-actions"><button class="button" type="submit">Save listing</button><button id="cancelEdit" class="button button-muted" type="button" hidden>Cancel edit</button></div>
+      </form><p class="small-note">Do not add private paid files or direct paid download links here. Public listing data is visible to visitors.</p></section>
+      <section><h2>Product listings</h2><div id="adminProducts" class="admin-list"></div></section>
+    </div><section class="orders-section"><h2>Order enquiries</h2><p class="small-note">Confirm product authenticity, availability, final price and delivery with the buyer.</p><div id="adminOrders" class="admin-list"></div></section></section>
+  </main><footer><p>MTANI TECH administration</p></footer>
+</body></html>
