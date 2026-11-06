@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Shop technology hardware, software and digital resources from MTANI TECH.">
-  <title>MTANI TECH | Technology Store</title>
+  <meta name="description" content="Explore practical technology, software and digital resources for everyday life in Tanzania. Contact MTANI TECH about products and local shop partnerships.">
+  <title>MTANI TECH | Technology for everyday life</title>
   <link rel="stylesheet" href="style.css">
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="supabase-config.js"></script>
@@ -14,32 +14,56 @@
   <header class="site-header">
     <a class="brand" href="index.html"><img src="Gemini_Generated_Image_3dc90g3dc90g3dc9.png" alt="MTANI TECH logo"><span>MTANI TECH</span></a>
     <nav aria-label="Main navigation">
-      <a href="index.html">Store</a>
-      <a href="#products">Products</a>
-      <a href="auth.html" id="accountLink">Log in / Sign up</a>
+      <a href="#products">Shop</a>
+      <a href="#guides">Tech guide</a>
+      <a href="#partners">Local shops</a>
+      <a href="auth.html" id="accountLink">Log in</a>
       <a href="admin.html" id="adminLink" hidden>Admin</a>
       <button class="button button-small" id="signOutButton" hidden>Log out</button>
     </nav>
   </header>
   <main>
     <section class="hero">
-      <p class="eyebrow">HARDWARE · SOFTWARE · DIGITAL RESOURCES</p>
-      <h1>Technology that helps you move forward.</h1>
-      <p>Browse useful devices, software and learning resources. Add items to your cart and place an order request securely.</p>
-      <a class="button" href="#products">Explore products</a>
+      <div class="hero-copy">
+        <p class="eyebrow">PRACTICAL TECHNOLOGY · TANZANIA</p>
+        <h1>Find the right technology for everyday life.</h1>
+        <p>Explore helpful devices, software and digital skills. Ask us about availability, prices in TZS and local shop options before you buy.</p>
+        <div class="hero-actions"><a class="button" href="#products">Browse products</a><a class="button button-outline" href="#guides">Explore the guide</a></div>
+      </div>
+      <img class="hero-image" src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1100&q=85" alt="People collaborating with technology" fetchpriority="high">
     </section>
+
     <section class="store-section" id="products">
-      <div class="section-heading"><div><p class="eyebrow">THE STORE</p><h2>Products</h2></div><div class="filters"><label class="visually-hidden" for="searchInput">Search products</label><input id="searchInput" type="search" placeholder="Search products..."><label class="visually-hidden" for="categoryFilter">Filter category</label><select id="categoryFilter"><option value="">All categories</option></select></div></div>
+      <div class="section-heading"><div><p class="eyebrow">SHOP</p><h2>Available products</h2><p class="section-intro">Browse the current catalogue. Confirm stock and final price with us before travelling or paying.</p></div><div class="filters"><label class="visually-hidden" for="searchInput">Search products</label><input id="searchInput" type="search" placeholder="Search products..."><label class="visually-hidden" for="categoryFilter">Filter category</label><select id="categoryFilter"><option value="">All categories</option></select></div></div>
       <p id="statusMessage" class="notice" role="status">Loading products…</p>
       <div id="productGrid" class="product-grid"></div>
     </section>
+
+    <section class="guide-section" id="guides">
+      <div class="section-heading"><div><p class="eyebrow">A SIMPLE BUYER'S GUIDE</p><h2>Technology for work, home and learning</h2><p class="section-intro">A few useful categories to consider. Choose tools that suit your needs, budget and access to power or internet.</p></div></div>
+      <div class="guide-grid">
+        <article class="guide-card"><img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=700&q=80" alt="Smartphone" loading="lazy"><div><h3>Phones & accessories</h3><p>Smartphones, chargers, cases and earphones for communication, mobile services and learning.</p></div></article>
+        <article class="guide-card"><img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=700&q=80" alt="Laptop computer" loading="lazy"><div><h3>Laptops & tablets</h3><p>For study, office tasks, business, programming and creating content. Compare memory, storage, battery and warranty.</p></div></article>
+        <article class="guide-card"><img src="https://images.unsplash.com/photo- router" alt="Wi-Fi networking equipment" loading="lazy"><div><h3>Internet & networking</h3><p>Routers, Wi-Fi equipment and network accessories. Check local network coverage and data costs first.</p></div></article>
+        <article class="guide-card"><img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=700&q=80" alt="Solar panels in sunlight" loading="lazy"><div><h3>Power & solar</h3><p>Power banks, surge protection and solar equipment can help keep devices available. Ask about capacity and safe installation.</p></div></article>
+        <article class="guide-card"><img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=700&q=80" alt="Person using a computer" loading="lazy"><div><h3>Software & online safety</h3><p>Use genuine software, updates, backups and strong unique passwords. Avoid unknown downloads and suspicious payment requests.</p></div></article>
+        <article class="guide-card"><img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=700&q=80" alt="Digital tools on a laptop" loading="lazy"><div><h3>Digital skills & tools</h3><p>Productivity, design, coding and AI tools can support learning and small businesses. Check requirements and terms before subscribing.</p></div></article>
+      </div>
+      <p class="image-note">Photos are illustrative stock images, not a guarantee of a particular product model or current stock.</p>
+    </section>
+
+    <section class="partner-section" id="partners">
+      <div><p class="eyebrow">TANZANIAN PHYSICAL SHOPS</p><h2>Have a local technology shop?</h2><p>We welcome enquiries from shop owners who want to feature their real products and shop details. Send your shop name, town, contact, product categories and photos. Listings are added only after details are confirmed.</p><p class="small-note">This is a shop-partner enquiry, not a claim that any shop is already verified or partnered.</p></div>
+      <a class="button" href="https://wa.me/255741332943?text=Hello%20MTANI%20TECH%2C%20I%20own%20a%20physical%20technology%20shop%20and%20would%20like%20to%20discuss%20a%20partner%20listing.%20Shop%20name%3A%20%20Town%3A%20%20Products%3A%20" target="_blank" rel="noopener noreferrer">Ask to partner on WhatsApp</a>
+    </section>
+
     <section class="cart-section" aria-labelledby="cartHeading">
       <div class="section-heading"><div><p class="eyebrow">YOUR SELECTION</p><h2 id="cartHeading">Shopping cart <span id="cartCount" class="count">0</span></h2></div></div>
       <div id="cartItems" class="cart-items"><p>Your cart is empty.</p></div>
       <div class="cart-footer"><strong>Total: <span id="cartTotal">TZS 0</span></strong><button id="checkoutButton" class="button" disabled>Place order request</button></div>
-      <p class="small-note">Orders are requests, not online payments. We’ll confirm availability and payment details with you directly.</p>
+      <p class="small-note">Orders are requests, not online payments. We’ll confirm stock, delivery/pickup and payment details with you directly.</p>
     </section>
   </main>
-  <footer><p>© 2026 MTANI TECH · <a href="mailto:beatusmtani95@gmail.com">Contact us</a> · <a href="https://wa.me/255741332943">WhatsApp</a></p></footer>
+  <footer><p>© 2026 MTANI TECH · <a href="mailto:beatusmtani95@gmail.com">Email us</a> · <a href="https://wa.me/255741332943">WhatsApp</a></p></footer>
 </body>
 </html>

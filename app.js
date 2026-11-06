@@ -2,12 +2,17 @@
   const client = window.supabaseClient;
   const status = document.getElementById('statusMessage');
   const formatMoney = value => new Intl.NumberFormat('en-TZ', { style: 'currency', currency: 'TZS', maximumFractionDigits: 0 }).format(Number(value) || 0);
+  const categoryImages = {
+    'Hardware': 'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=800&q=80',
+    'Software': 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80',
+    'Digital resources': 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80',
+    'Accessories': 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80'
+  };
   let products = [];
   let cart = JSON.parse(localStorage.getItem('mtani-cart') || '[]');
   const grid = document.getElementById('productGrid');
 
   function setStatus(message, error = false) { status.textContent = message; status.classList.toggle('error', error); }
-  function escapeText(value) { return String(value ?? ''); }
 
   function drawProducts() {
     const query = document.getElementById('searchInput').value.trim().toLowerCase();
@@ -17,7 +22,7 @@
     if (!shown.length) { grid.innerHTML = '<p class="empty-state">No products to show yet. Please check back soon.</p>'; return; }
     shown.forEach(product => {
       const card = document.createElement('article'); card.className = 'product-card';
-      if (product.image_url) { const image = document.createElement('img'); image.className = 'product-image'; image.src = product.image_url; image.alt = product.name; image.loading = 'lazy'; card.append(image); }
+      const image = document.createElement('img'); image.className = 'product-image'; image.src = product.image_url || categoryImages[product.category] || categoryImages.Hardware; image.alt = product.name; image.loading = 'lazy'; image.onerror = () => { image.hidden = true; }; card.append(image);
       const categoryLabel = document.createElement('p'); categoryLabel.className = 'eyebrow'; categoryLabel.textContent = product.category;
       const title = document.createElement('h3'); title.textContent = product.name;
       const description = document.createElement('p'); description.className = 'product-description'; description.textContent = product.description;
@@ -50,21 +55,21 @@
     document.getElementById('checkoutButton').disabled = cart.length === 0;
   }
   async function loadProducts() {
-    if (!client) { setStatus('Store database is not connected yet. The owner needs to add the Supabase project URL and public key, then run the setup SQL.', true); drawCart(); return; }
+    if (!client) { setStatus('Product catalogue is being prepared. Contact us on WhatsApp to ask about availability.', true); drawCart(); return; }
     const { data, error } = await client.from('products').select('id,name,category,description,price,image_url,active').eq('active', true).order('created_at', { ascending: false });
-    if (error) { setStatus('Could not load products. Check that the database setup has been completed.', true); console.error(error); return; }
+    if (error) { setStatus('Could not load products. Please contact us to check availability.', true); console.error(error); return; }
     products = data || [];
     const categories = [...new Set(products.map(p => p.category).filter(Boolean))];
     const select = document.getElementById('categoryFilter');
     categories.forEach(value => { const option = document.createElement('option'); option.value = value; option.textContent = value; select.append(option); });
-    setStatus(products.length ? `${products.length} product${products.length === 1 ? '' : 's'} available` : 'The catalog is ready. Products will appear here when the admin adds them.');
+    setStatus(products.length ? `${products.length} product${products.length === 1 ? '' : 's'} listed · confirm current stock and price before purchase` : 'The catalogue is ready. Contact us on WhatsApp to ask about products while listings are being added.');
     drawProducts(); drawCart();
   }
 
   document.getElementById('searchInput').addEventListener('input', drawProducts);
   document.getElementById('categoryFilter').addEventListener('change', drawProducts);
   document.getElementById('checkoutButton').addEventListener('click', async () => {
-    if (!client) { setStatus('The store database is not connected yet.', true); return; }
+    if (!client) { setStatus('Online order requests are not connected yet. Contact us on WhatsApp.', true); return; }
     const { data: { user } } = await client.auth.getUser();
     if (!user) { location.href = 'auth.html?next=checkout'; return; }
     const button = document.getElementById('checkoutButton'); button.disabled = true;
