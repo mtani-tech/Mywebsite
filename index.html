@@ -1,60 +1,45 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>MTANI WEBSITE</title>
-        <link rel="stylesheet" href="style.css">
-        <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    </head>
-    <body>
-        <header>
-            <img src="Gemini_Generated_Image_3dc90g3dc90g3dc9.png" alt="logo" width="150">
-            <h2><marquee>MTANI WEBSITE</marquee></h2>
-            <nav>
-                <a href="index.html">Home</a>
-                <a href="help.html">Help desk</a>
-                <a href="tools.html">Tools</a>
-            </nav>
-        </header>
-
-        <h2><marquee>My Portfolio</marquee></h2>
-        
-        <p>I am Beatus Mtani, a passionate, dedicated, and highly motivated software developer who envisioned and created this advanced website platform. I am fully graduated in certificate level ...</p>
-        
-        <img src="code.jpg" alt="photo">
-        
-        <p>The primary aim of create this website is to ensure that people everywhere are deeply readable, educated, and well-informed in all matters concerning Information Technology. Cause now, ...</p>
-        
-        <img src="tech.jpg" alt="Computer photo">
-        
-        <p>So in this official website, we demonstrate more comprehensive information, practical tutorials, and interactive learning tools that will help you to be fully aware with IT developments...</p>
-        
-        <button id="welcomeBtn" type="button">Click me</button>
-    
-        <footer>
-            <marquee>&copy 2026 MTANI WEBSITE</marquee>
-            <h3>contact us</h3>
-            Phone: <a href="tel:+255741332943">+255741332943</a> | Email: <a href="mailto:beatusmtani95@gmail.com">beatusmtani95@gmail.com</a>
-        </footer>
-
-        <script>
-            const welcomeBtn = document.getElementById("welcomeBtn");
-
-            welcomeBtn.addEventListener("click", async function () {
-                if ("Notification" in window) {
-                    const permission = await Notification.requestPermission();
-
-                    if (permission === "granted") {
-                        new Notification("Welcome!", {
-                            body: "Thank you for visiting MTANI WEBSITE. We are glad you are here!",
-                            icon: "Gemini_Generated_Image_3dc90g3dc90g3dc9.png"
-                        });
-                    }
-                }
-
-                setTimeout(function () {
-                    window.location.href = "help.html";
-                }, 300);
-            });
-        </script>
-    </body>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Shop technology hardware, software and digital resources from MTANI TECH.">
+  <title>MTANI TECH | Technology Store</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase-config.js"></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html"><img src="Gemini_Generated_Image_3dc90g3dc90g3dc9.png" alt="MTANI TECH logo"><span>MTANI TECH</span></a>
+    <nav aria-label="Main navigation">
+      <a href="index.html">Store</a>
+      <a href="#products">Products</a>
+      <a href="auth.html" id="accountLink">Log in / Sign up</a>
+      <a href="admin.html" id="adminLink" hidden>Admin</a>
+      <button class="button button-small" id="signOutButton" hidden>Log out</button>
+    </nav>
+  </header>
+  <main>
+    <section class="hero">
+      <p class="eyebrow">HARDWARE · SOFTWARE · DIGITAL RESOURCES</p>
+      <h1>Technology that helps you move forward.</h1>
+      <p>Browse useful devices, software and learning resources. Add items to your cart and place an order request securely.</p>
+      <a class="button" href="#products">Explore products</a>
+    </section>
+    <section class="store-section" id="products">
+      <div class="section-heading"><div><p class="eyebrow">THE STORE</p><h2>Products</h2></div><div class="filters"><label class="visually-hidden" for="searchInput">Search products</label><input id="searchInput" type="search" placeholder="Search products..."><label class="visually-hidden" for="categoryFilter">Filter category</label><select id="categoryFilter"><option value="">All categories</option></select></div></div>
+      <p id="statusMessage" class="notice" role="status">Loading products…</p>
+      <div id="productGrid" class="product-grid"></div>
+    </section>
+    <section class="cart-section" aria-labelledby="cartHeading">
+      <div class="section-heading"><div><p class="eyebrow">YOUR SELECTION</p><h2 id="cartHeading">Shopping cart <span id="cartCount" class="count">0</span></h2></div></div>
+      <div id="cartItems" class="cart-items"><p>Your cart is empty.</p></div>
+      <div class="cart-footer"><strong>Total: <span id="cartTotal">TZS 0</span></strong><button id="checkoutButton" class="button" disabled>Place order request</button></div>
+      <p class="small-note">Orders are requests, not online payments. We’ll confirm availability and payment details with you directly.</p>
+    </section>
+  </main>
+  <footer><p>© 2026 MTANI TECH · <a href="mailto:beatusmtani95@gmail.com">Contact us</a> · <a href="https://wa.me/255741332943">WhatsApp</a></p></footer>
+</body>
 </html>
