@@ -18,22 +18,43 @@
 
         <h2><marquee>My Portfolio</marquee></h2>
         
-        <p>I am Beatus Mtani, a passionate, dedicated, and highly motivated software developer who envisioned and created this advanced website platform. I am fully graduated in certificate level at the prestigious <b>Institute of Finance Management (IFM)</b>, where I acquired solid foundational skills in computing, algorithms, and modern system development. I hope you will truly enjoy to visit this website and discover all the amazing resources we have prepared for you. As a developer, my primary mission is to build digital products that bridge the gap between human daily needs and high-end technological capabilities, creating smooth user experiences for everyone.</p>
+        <p>I am Beatus Mtani, a passionate, dedicated, and highly motivated software developer who envisioned and created this advanced website platform. I am fully graduated in certificate level ...</p>
         
         <img src="code.jpg" alt="photo">
         
-        <p>The primary aim of create this website is to ensure that people everywhere are deeply readable, educated, and well-informed in all matters concerning Information Technology. Cause now, the entire modern World is completely based on information technology, and missing these essential digital skills can leave many individuals behind in business, career, and daily life. Through this online portal, we aim to eliminate digital illiteracy by breaking down complex tech concepts into simple, understandable knowledge that anyone can easily digest and apply in their personal or professional growth.</p>
+        <p>The primary aim of create this website is to ensure that people everywhere are deeply readable, educated, and well-informed in all matters concerning Information Technology. Cause now, ...</p>
         
         <img src="tech.jpg" alt="Computer photo">
         
-        <p>So in this official website, we demonstrate more comprehensive information, practical tutorials, and interactive learning tools that will help you to be fully aware with IT developments and the future of the digital landscape. We cover everything from basic computing to modern tech tools so you can comfortably adapt to this fast-changing world. Let us embark on this educational tech journey together and unlock your potential—so let's go!</p>
+        <p>So in this official website, we demonstrate more comprehensive information, practical tutorials, and interactive learning tools that will help you to be fully aware with IT developments...</p>
         
-        <button><a href="help.html">click me</a></button>
-   
+        <button id="welcomeBtn" type="button">Click me</button>
+    
         <footer>
             <marquee>&copy 2026 MTANI WEBSITE</marquee>
             <h3>contact us</h3>
             Phone: <a href="tel:+255741332943">+255741332943</a> | Email: <a href="mailto:beatusmtani95@gmail.com">beatusmtani95@gmail.com</a>
         </footer>
+
+        <script>
+            const welcomeBtn = document.getElementById("welcomeBtn");
+
+            welcomeBtn.addEventListener("click", async function () {
+                if ("Notification" in window) {
+                    const permission = await Notification.requestPermission();
+
+                    if (permission === "granted") {
+                        new Notification("Welcome!", {
+                            body: "Thank you for visiting MTANI WEBSITE. We are glad you are here!",
+                            icon: "Gemini_Generated_Image_3dc90g3dc90g3dc9.png"
+                        });
+                    }
+                }
+
+                setTimeout(function () {
+                    window.location.href = "help.html";
+                }, 300);
+            });
+        </script>
     </body>
 </html>
